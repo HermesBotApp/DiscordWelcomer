@@ -1,0 +1,5 @@
+main: fr.blueberry.studio.hermes.plugins.discordwelcomer.DiscordWelcomer
+name: DiscordWelcomer
+version: 1.0
+author: Grimille
+description: Souhaite la bienvenue aux nouveaux membres.
