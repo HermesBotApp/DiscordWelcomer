@@ -12,9 +12,9 @@ import java.util.concurrent.TimeUnit;
 
 import fr.blueberry.studio.hermes.api.bots.Bot;
 import fr.blueberry.studio.hermes.api.bots.IBotManager;
-import fr.blueberry.studio.hermes.utils.MessageEmbedHelper;
-import fr.blueberry.studio.hermes.utils.RandomHelper;
-import fr.blueberry.studio.hermes.utils.ColorHelper;
+import fr.blueberry.studio.hermes.api.utils.MessageEmbedHelper;
+import fr.blueberry.studio.hermes.api.utils.RandomHelper;
+import fr.blueberry.studio.hermes.api.utils.ColorHelper;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.events.guild.member.GuildMemberJoinEvent;
@@ -46,12 +46,10 @@ public class GuildMemberJoinListener extends ListenerAdapter {
                 .setTitle(config.getString("title"))
                 .setColor(color)
                 .build();
-            System.out.println("Event");
 
             bot.getJDA().getTextChannelById(channel.getId()).sendMessage(embed).queue(message -> {
                 final String emote = config.getString("emote");
 
-                System.out.println(emote);
                 if(EmojiUtils.isEmoji(emote)) {
                     message.addReaction(EmojiUtils.getEmoji(emote).getEmoji()).queue();
                 } else {

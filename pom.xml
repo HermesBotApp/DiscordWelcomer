@@ -14,15 +14,15 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>14</maven.compiler.source>
-    <maven.compiler.target>14</maven.compiler.target>
+    <maven.compiler.source>15</maven.compiler.source>
+    <maven.compiler.target>15</maven.compiler.target>
   </properties>
 
   <dependencies>
     <dependency>
       <groupId>fr.blueberry-studio.hermes</groupId>
       <artifactId>Hermes</artifactId>
-      <version>0.5-ALPHA</version>
+      <version>0.6-ALPHA</version>
       <scope>provided</scope>
     </dependency>
   </dependencies>
