@@ -11,7 +11,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 import fr.blueberry.studio.hermes.api.bots.Bot;
-import fr.blueberry.studio.hermes.api.bots.IBotManager;
+import fr.blueberry.studio.hermes.api.bots.BotManager;
 import fr.blueberry.studio.hermes.api.utils.MessageEmbedHelper;
 import fr.blueberry.studio.hermes.api.utils.RandomHelper;
 import fr.blueberry.studio.hermes.api.utils.ColorHelper;
@@ -21,10 +21,10 @@ import net.dv8tion.jda.api.events.guild.member.GuildMemberJoinEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 public class GuildMemberJoinListener extends ListenerAdapter {
-    private final IBotManager botManager;
+    private final BotManager botManager;
     private final YamlFile config;
 
-    public GuildMemberJoinListener(IBotManager botManager, YamlFile config) {
+    public GuildMemberJoinListener(BotManager botManager, YamlFile config) {
         this.botManager = botManager;
         this.config = config;
     }
@@ -42,7 +42,7 @@ public class GuildMemberJoinListener extends ListenerAdapter {
             final String welcome = messages.get(randomIndex).replaceAll("%mention%", event.getMember().getAsMention());
             final MessageEmbed embed = MessageEmbedHelper.getBuilder()
                 .setDescription(welcome)
-                .setThumbnail(config.getString("image"))
+                .setThumbnail(config.getString("image").isBlank() ? null : config.getString("image"))
                 .setTitle(config.getString("title"))
                 .setColor(color)
                 .build();
