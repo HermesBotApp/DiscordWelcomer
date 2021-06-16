@@ -24,7 +24,5 @@ public class DiscordWelcomer extends Plugin {
     }
 
     @Override
-    public void onDisable() {
-    }
-    
+    public void onDisable() {}
 }
